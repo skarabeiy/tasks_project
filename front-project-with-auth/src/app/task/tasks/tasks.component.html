@@ -1,0 +1,46 @@
+<!--страница tasks, главная страница задач-->
+<h2>Personal Page</h2>
+<nav>
+  <a routerLink="/personalPage">Personal page</a>
+  <a routerLink="/mainPage">Main page</a>
+</nav>
+<app-task-search></app-task-search>
+<hr>
+<div>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="add-button" >
+    <a routerLink="add">
+      Add task
+    </a>
+  </button>
+
+</div>
+
+
+<ul class="tasks">
+  <li *ngFor="let task of tasks">
+    <a routerLink="/detail/{{task.id}}">
+      <span class="badge">{{task.id}}</span>{{task.user.name}} {{task.taskName}} {{task.taskCondition}} {{task.taskTopic}} {{task.tags}} {{task.answerOptions}} {{task.rating}}
+
+    </a>
+    <button class="view" title="view">
+    <a routerLink="/view/{{task.id}}">
+      View
+    </a>
+    </button>
+
+    <button class="delete" title="delete task"
+            (click)="delete(task)">x</button>
+  </li>
+
+</ul>
+
+<div *ngIf="achievements">
+  <h4>Achievements</h4>
+  <hr>
+  <p>The number of tasks you created: {{achievements.numberCreatedTasks}}</p>
+  <p>The number of tasks you solved: {{achievements.numberSolvedTasks}}</p>
+</div>
+
+
+

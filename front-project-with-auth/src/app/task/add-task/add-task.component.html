@@ -1,0 +1,27 @@
+<!--страница add, создание задачи-->
+<div *ngIf="task">
+  <h2>{{task.taskName | uppercase}} Details</h2>
+  <div>
+
+    <label for="task-name">Task name: </label>
+    <input id="task-name" [(ngModel)]="task.taskName" placeholder="Task name"/>
+
+    <label for="task-condition">Task condition: </label>
+    <input id="task-condition" [(ngModel)]="task.taskCondition" placeholder="Task condition"/>
+
+    <label for="task-topic">Task topic: </label>
+    <input id="task-topic" [(ngModel)]="task.taskTopic" placeholder="Task topic"/>
+
+    <label for="tags">Tags: </label>
+    <input id="tags" [(ngModel)]="task.tags" placeholder="tags"/>
+
+    <label for="answerOptions">Answer options: </label>
+    <input id="answerOptions" [(ngModel)]="task.answerOptions" placeholder="answerOptions"/>
+
+    <label for="rightSolution">Right solution: </label>
+    <input id="rightSolution" [(ngModel)]="task.rightSolution" placeholder="rightSolution"/>
+
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="add()">save</button>
+</div>

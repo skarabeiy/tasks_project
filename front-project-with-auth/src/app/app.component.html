@@ -1,0 +1,27 @@
+<!--<h1>{{title}}</h1>-->
+<nav>
+<!--  <a routerLink="/personalPage">Personal page</a>-->
+
+
+    <!--  <li *ngIf="getRole()=='USERS'" class="dropdown">-->
+    <!--    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Companies</a>-->
+    <!--    <ul class="dropdown-menu">-->
+    <!--      <li><a routerLink="">All</a></li>-->
+    <!--      <li><a routerLink="">add</a></li>-->
+    <!--    </ul>-->
+
+    <!--  <li *ngIf="getRole()=='ADMIN'" class="dropdown">-->
+    <!--    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Drivers</a>-->
+    <!--    <ul class="dropdown-menu">-->
+    <!--      <li><a routerLink="">All</a></li>-->
+    <!--      <li><a routerLink="">add</a></li>-->
+    <!--    </ul>-->
+
+
+</nav>
+<router-outlet></router-outlet>
+<nav>
+  <ul class="nav navbar-nav navbar-right" *ngIf="!authService.isTokenExpired()">
+    <li><a routerLink="/login" (click)="logout()">Log out</a></li>
+  </ul>
+</nav>

@@ -1,0 +1,27 @@
+<!--страница view, просмотр задачи-->
+<div *ngIf="task">
+  <h2>{{task.taskName | uppercase}} Details</h2>
+  <div>
+    <p>Task name: {{task.taskName}}</p>
+    <p>Task condition: {{task.taskCondition}}</p>
+    <p>Task topic: {{task.taskTopic}}</p>
+    <p>Tags: {{task.tags}}</p>
+    <p>Answers options: {{task.answerOptions}}</p>
+    <p>Rating: {{task.rating}}</p>
+
+  </div>
+  <div>
+  <label for="task-rating">Set rating: </label>
+  <input id="task-rating" [(ngModel)]="rating.rating" placeholder="Task rating"/>
+  <button (click)="setRating()">Set rating</button>
+  </div>
+
+<!--  !-->
+  <div>
+    <label for="task-answer">Your answer: </label>
+    <input id="task-answer" [(ngModel)]="answer.answer" placeholder="Your answer"/>
+    <button (click)="setAnswer()">Send a solution</button>
+  </div>
+  <button (click)="goBack()">go back</button>
+
+</div>
