@@ -1,0 +1,27 @@
+<h2>{{ 'HOME.adminPage' | translate }}</h2>
+<hr>
+
+<table class="table table-striped">
+
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col" >#</th>
+    <th scope="col" >{{ 'HOME.userName' | translate }}</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let user of users">
+  <tr>
+      <a routerLink="/page/{{user.id}}">
+      <th scope="row">{{user.id}} {{ 'HOME.link' | translate }}</th>
+    </a>
+    <td>{{user.name}}</td>
+
+  </tr>
+
+
+
+  </tbody>
+</table>
+<br><br><br>
+
+

@@ -1,27 +1,31 @@
 <!--страница view, просмотр задачи-->
 <div *ngIf="task">
-  <h2>{{task.taskName | uppercase}} Details</h2>
+  <h3>{{task.taskName | uppercase}} {{ 'HOME.viewing' | translate }}</h3>
+  <hr>
   <div>
-    <p>Task name: {{task.taskName}}</p>
-    <p>Task condition: {{task.taskCondition}}</p>
-    <p>Task topic: {{task.taskTopic}}</p>
-    <p>Tags: {{task.tags}}</p>
-    <p>Answers options: {{task.answerOptions}}</p>
-    <p>Rating: {{task.rating}}</p>
+    <p>{{ 'HOME.taskName' | translate }}: {{task.taskName}}</p>
+    <p>{{ 'HOME.taskCondition' | translate }}: {{task.taskCondition}}</p>
+    <p>{{ 'HOME.taskTopic' | translate }}: {{task.taskTopic}}</p>
+    <p>{{ 'HOME.tags' | translate }}: {{task.tags}}</p>
+    <p>{{ 'HOME.answer' | translate }}: {{task.answerOptions}}</p>
+    <p>{{ 'HOME.overallRating' | translate }}: {{task.rating}} <img src="assets/img/star.jpg"></p>
 
   </div>
-  <div>
-  <label for="task-rating">Set rating: </label>
-  <input id="task-rating" [(ngModel)]="rating.rating" placeholder="Task rating"/>
-  <button (click)="setRating()">Set rating</button>
-  </div>
 
-<!--  !-->
+  {{ 'HOME.setRating' | translate }}:
+  <ng-template #t let-fill="fill">
+  <span class="star" [class.full]="fill === 100">
+    <span class="half" [style.width.%]="fill">&bigstar;</span>&bigstar;
+  </span>
+  </ng-template>
+  <ngb-rating [(ngModel)]="rating.rating" [starTemplate]="t"  [max]="5" (click)="setRating()"></ngb-rating>
+
+
   <div>
-    <label for="task-answer">Your answer: </label>
-    <input id="task-answer" [(ngModel)]="answer.answer" placeholder="Your answer"/>
-    <button (click)="setAnswer()">Send a solution</button>
+    <label for="task-answer">{{ 'HOME.yourAnswer' | translate }}: </label>
+    <input id="task-answer" [(ngModel)]="answer.answer" placeholder="{{ 'HOME.yourAnswer' | translate }}"/>
+    <button (click)="setAnswer()">{{ 'HOME.solution' | translate }}</button>
   </div>
-  <button (click)="goBack()">go back</button>
+  <button (click)="goBack()">{{ 'HOME.back' | translate }}</button>
 
 </div>

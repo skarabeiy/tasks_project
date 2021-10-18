@@ -1,5 +1,6 @@
 package itransition.project.user.service;
 
+import itransition.project.user.dto.UserDto;
 import itransition.project.user.dto.UserDtoWithPassword;
 import itransition.project.user.model.Role;
 import itransition.project.user.model.User;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -44,12 +46,13 @@ public class UserServiceImpl implements UserService {
         return modelMapper.map(registeredUser, UserDtoWithPassword.class);
     }
 
-//    @Override
-//    public List<User> getAll() {
-//        List<User> result = userRepository.findAll();
-//        log.info("IN getAll - {} users found", result.size());
-//        return result;
-//    }
+    @Override
+    public List<UserDto> findAll() {
+        log.info("In UserServiceImpl findAll");
+        List<User>users=userRepository.findAll();
+        List<UserDto> userDtos = users.stream().map(task -> modelMapper.map(task, UserDto.class)).collect(Collectors.toList());
+        return userDtos;
+    }
 
     @Override
     @Transactional
@@ -59,22 +62,4 @@ public class UserServiceImpl implements UserService {
         return modelMapper.map(result,UserDtoWithPassword.class);
     }
 
-//    @Override
-//    public User findById(Long id) {
-//        User result = userRepository.findById(id).orElse(null);
-//
-//        if (result == null) {
-//            log.warn("IN findById - no user found by id: {}", id);
-//            return null;
-//        }
-//
-//        log.info("IN findById - user: {} found by id: {}", result);
-//        return result;
-//    }
-
-//    @Override
-//    public void delete(Long id) {
-//        userRepository.deleteById(id);
-//        log.info("IN delete - user with id: {} successfully deleted");
-//    }
 }

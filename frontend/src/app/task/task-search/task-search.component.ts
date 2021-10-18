@@ -10,7 +10,6 @@ import {Task} from "../../common/model/task/task";
   styleUrls: ['./task-search.component.css']
 })
 export class TaskSearchComponent implements OnInit {
-  // tasks$!: Observable<Task[]>;
   tasks$!: Observable<Task[]>;
   private searchTerms = new Subject<string>();
   constructor(private taskService: TaskService) { }

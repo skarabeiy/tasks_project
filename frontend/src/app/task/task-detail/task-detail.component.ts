@@ -14,6 +14,7 @@ import {AnswerService} from "../../common/model/answer/service/answer.service";
 import {Answer} from "../../common/model/answer/answer";
 import {AuthService} from "../../common/auth/auth.service/auth.service";
 import jwt_decode from "jwt-decode";
+import swal from "sweetalert";
 
 @Component({
   selector: 'app-task-detail',
@@ -97,7 +98,6 @@ export class TaskDetailComponent implements OnInit {constructor(
     user.id = userId;
     this.rating.task = task;
     this.rating.user = user;
-    //console.log(this.rating);
     this.ratingService.setRating(this.rating)  //Отправляем на бекенд
       .subscribe(()=>this.ngOnInit());
   }
@@ -123,9 +123,9 @@ export class TaskDetailComponent implements OnInit {constructor(
     this.answerService.setAnswer(this.answer)
       .subscribe(answer=>{
         if(answer.answer){
-          alert("right");
+          swal("Right!","You give the correct answer!","success");
         } else{
-          alert("wrong");
+          swal("Wrong", "You give the wrong answer!", "error");
         }
       })
 

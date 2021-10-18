@@ -1,43 +1,77 @@
-<h2>Main Page</h2>
-<nav>
-  <a routerLink="/personalPage">Personal page</a>
-  <a routerLink="/mainPage">Main page</a>
-</nav>
-<app-task-search></app-task-search>
+
+<h2>{{ 'HOME.TITLE1' | translate }}</h2>
 <hr>
 
+<nav>
+  <a routerLink="/personalPage">{{ 'HOME.buttonPersonalPage' | translate }}</a>
+  <a routerLink="/mainPage">{{ 'HOME.buttonMainPage' | translate }}</a>
+</nav>
+<hr>
+<app-task-search></app-task-search>
+<br>
+<hr>
 
-
-<ul class="tasks">
-  <h3>Last created tasks</h3>
+  <h3>{{ 'HOME.last' | translate }} <img src="assets/img/clock.jpg"></h3>
   <br><br>
-  <li *ngFor="let task of tasks1">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">{{ 'HOME.creator' | translate }}</th>
+      <th scope="col">{{ 'HOME.taskName' | translate }}</th>
+      <th scope="col">{{ 'HOME.taskTopic' | translate }}</th>
+      <th scope="col">{{ 'HOME.tags' | translate }}</th>
+      <th scope="col">{{ 'HOME.rating' | translate }}</th>
+      <th scope="col"></th>
 
-      <span class="badge">{{task.id}}</span>{{task.user.name}} {{task.taskName}} {{task.taskCondition}} {{task.taskTopic}} {{task.tags}} {{task.answerOptions}} {{task.rating}}
+    </tr>
+    </thead>
+    <tbody *ngFor="let task of tasks1">
+    <tr>
+        <th scope="row">{{task.id}}</th>
+      <td>{{task.user.name}}</td>
+      <td>{{task.taskName}}</td>
+      <td>{{task.taskTopic}}</td>
+      <td>{{task.tags}}</td>
+      <td>{{task.rating}} <img src="assets/img/star.png"></td>
+      <td><a routerLink="/view/{{task.id}}">{{ 'HOME.view' | translate }}</a></td>
+    </tr>
+    </tbody>
+  </table>
 
-    <button class="view" title="view">
-      <a routerLink="/view/{{task.id}}">
-        View
-      </a>
-    </button>
-    <br><br>
-  </li>
-</ul>
 <br><hr><br><br>
-<ul class="tasks">
-  <h3>Top rated tasks</h3>
+
+
+  <h3>{{ 'HOME.top' | translate }}<img src="assets/img/rating.jpg"></h3>
   <br><br>
-  <li *ngFor="let task of tasks2">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">{{ 'HOME.creator' | translate }}</th>
+        <th scope="col">{{ 'HOME.taskName' | translate }}</th>
+        <th scope="col">{{ 'HOME.taskTopic' | translate }}</th>
+        <th scope="col">{{ 'HOME.tags' | translate }}</th>
+        <th scope="col">{{ 'HOME.rating' | translate }}</th>
+        <th scope="col"></th>
 
-    <span class="badge">{{task.id}}</span>{{task.user.name}} {{task.taskName}} {{task.taskCondition}} {{task.taskTopic}} {{task.tags}} {{task.answerOptions}} {{task.rating}}
-    <button class="view" title="view">
-      <a routerLink="/view/{{task.id}}">
-        View
-      </a>
-    </button>
-    <br><br>
-  </li>
+      </tr>
+      </thead>
+      <tbody *ngFor="let task of tasks2">
+      <tr>
+        <th scope="row">{{task.id}}</th>
+        <td>{{task.user.name}}</td>
+        <td>{{task.taskName}}</td>
+        <td>{{task.taskTopic}}</td>
+        <td>{{task.tags}}</td>
+        <td>{{task.rating}} <img src="assets/img/star.png"></td>
+        <td><a routerLink="/view/{{task.id}}">{{ 'HOME.view' | translate }}</a></td>
+      </tr>
+      </tbody>
+    </table>
 
-</ul>
+
+
+
 
 

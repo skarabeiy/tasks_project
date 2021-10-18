@@ -32,17 +32,16 @@ public class AnswerServiceImpl implements AnswerService{
         this.modelMapper = modelMapper;
         this.answerRepository = answerRepository;
         this.taskService = taskService;
-        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);  //??
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
     }
 
     @Override
     @Transactional
-    public ResultDto processAnswer(AnswerDto answerDto) {  //
+    public ResultDto processAnswer(AnswerDto answerDto) {
         UserDto userDto = answerDto.getUser();
         TaskDto taskDto = answerDto.getTask();
         User user = modelMapper.map(userDto,User.class);
         Task task = modelMapper.map(taskDto,Task.class);
-        //Optional<Task> optionalTask1 = taskService.findById(task.getId());
 
         TaskDto taskDto1 = taskService.findById(task.getId()).get();
         Task task1 = modelMapper.map(taskDto1,Task.class);

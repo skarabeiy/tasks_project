@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@AllArgsConstructor  //мб они не нужн 2?
+@AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
 public class User {

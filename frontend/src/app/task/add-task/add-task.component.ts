@@ -36,7 +36,6 @@ export class AddTaskComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //console.log(this.getDecodedAccessToken(this.authService.getToken()).user);
     this.task={
       id:0,
       user:{

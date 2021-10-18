@@ -1,27 +1,16 @@
-<!--<h1>{{title}}</h1>-->
+<div class="button">
+<button (click)="translate.use('ru')"><img src="assets/img/ruFlag.png">{{ 'BUTTON.LANG.RU' | translate }}</button>
+<button (click)="translate.use('en')"><img src="assets/img/enFlag.png">{{ 'BUTTON.LANG.EN' | translate }}</button>
+</div>
+<br>
+
 <nav>
-<!--  <a routerLink="/personalPage">Personal page</a>-->
-
-
-    <!--  <li *ngIf="getRole()=='USERS'" class="dropdown">-->
-    <!--    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Companies</a>-->
-    <!--    <ul class="dropdown-menu">-->
-    <!--      <li><a routerLink="">All</a></li>-->
-    <!--      <li><a routerLink="">add</a></li>-->
-    <!--    </ul>-->
-
-    <!--  <li *ngIf="getRole()=='ADMIN'" class="dropdown">-->
-    <!--    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Drivers</a>-->
-    <!--    <ul class="dropdown-menu">-->
-    <!--      <li><a routerLink="">All</a></li>-->
-    <!--      <li><a routerLink="">add</a></li>-->
-    <!--    </ul>-->
-
 
 </nav>
 <router-outlet></router-outlet>
+<hr>
 <nav>
   <ul class="nav navbar-nav navbar-right" *ngIf="!authService.isTokenExpired()">
-    <li><a routerLink="/login" (click)="logout()">Log out</a></li>
+    <li><a routerLink="/login" (click)="logout()">{{ 'HOME.logOut' | translate }}</a></li>
   </ul>
 </nav>

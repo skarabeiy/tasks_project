@@ -1,0 +1,53 @@
+{
+  "HOME": {
+    "TITLE": "Personal Page",
+    "TITLE1": "Main Page",
+    "buttonPersonalPage": "Personal Page",
+    "buttonMainPage": "Main Page",
+    "taskSearch": "Task Search",
+    "addTask": "Add task",
+    "taskName": "Task name",
+    "taskTopic": "Task topic",
+    "tags": "Tags",
+    "rating": "Rating",
+    "update": "update",
+    "view": "View",
+    "delete": "delete",
+    "achievements": "Achievements",
+    "created": "The number of tasks you created",
+    "solved": "The number of tasks you solved",
+    "logOut": "Log out",
+    "last": "Last created tasks",
+    "top": "Top rated tasks",
+    "creator": "Creator name",
+    "viewing": "Viewing",
+    "taskCondition": "Task condition",
+    "answer": "Answers options",
+    "overallRating": "Overall rating",
+    "setRating": "Set rating",
+    "yourAnswer": "Your answer",
+    "solution": "Send a solution",
+    "back": "go back",
+    "details": "Details",
+    "save": "save",
+    "right": "Right solution",
+    "registration": "Registration",
+    "name": "Your name",
+    "password": "Your password",
+    "register": "register",
+    "login": "Login",
+    "loginAdmin": "Login as admin",
+    "adminPassword": "Enter admin password",
+    "adminPage": "Admin Page",
+    "link": "link to page",
+    "userName": "User name"
+
+
+  },
+  "BUTTON": {
+    "LANG": {
+      "RU": "Russian",
+      "EN": "English"
+    }
+  }
+}

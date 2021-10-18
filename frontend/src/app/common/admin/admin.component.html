@@ -1,0 +1,24 @@
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6 login-form-1">
+      <h3>{{ 'HOME.login' | translate }}<br>{{ 'HOME.adminPassword' | translate }}</h3>
+
+      <form >
+        <div class="form-group" [class.has-error]="hasError">
+          <input type="text" #name class="form-control" placeholder="Admin"  value="Admin" readonly />
+        </div>
+        <div class="form-group" [class.has-error]="hasError">
+          <input type="password" #password class="form-control" placeholder="{{ 'HOME.password' | translate }} *" value="" />
+        </div>
+        <div class="form-group">
+          <input type="submit" (click)="login(name.value, password.value); name.value=''; password.value=''; hasError = true;" class="btnSubmit" value="{{ 'HOME.login' | translate }}" />
+          <nav>
+            <a routerLink="/login">{{ 'HOME.back' | translate }}</a>
+          </nav>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,7 @@ import { TasksComponent } from './task/tasks/tasks.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import { AddTaskComponent } from './task/add-task/add-task.component';
 import { TaskDetailComponent } from './task/task-detail/task-detail.component';
 import {LoginComponent} from "./common/login/login.component";
@@ -24,9 +24,22 @@ import {TypeaheadModule} from "ngx-bootstrap/typeahead";
 import { MainPageComponent } from './main-page/main-page.component';
 import { TaskSearchComponent } from './task/task-search/task-search.component';
 import { RegisterComponent } from './common/register/register.component';
-//import { AgmCoreModule } from "@agm/core";
+import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {RatingModule} from "ng-starrating";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminComponent } from './common/admin/admin.component';
+import { AdminPageComponent } from './common/admin-page/admin-page.component';
+import { PageComponent } from './common/page/page.component';
+import { AddPageComponent } from './common/add-page/add-page.component';
+import { PageViewComponent } from './common/page-view/page-view.component';
 
 
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   imports: [
@@ -34,13 +47,22 @@ import { RegisterComponent } from './common/register/register.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    //??
     ReactiveFormsModule,
     BsDatepickerModule.forRoot(),
     ButtonsModule,
     TypeaheadModule,
+    RatingModule,
     BrowserAnimationsModule,
-    //AgmCoreModule.forRoot({apiKey: 'AIzaSyBSzIc8SWZjRZQSA13GmXK-GVgKVGtcDEY'})
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      defaultLanguage:'en'
+    }),
+    NgbModule
+
 
   ],
   declarations: [
@@ -53,6 +75,12 @@ import { RegisterComponent } from './common/register/register.component';
     MainPageComponent,
     TaskSearchComponent,
     RegisterComponent,
+    AdminComponent,
+    AdminPageComponent,
+    PageComponent,
+    AddPageComponent,
+    PageViewComponent,
+
 
   ],
   providers: [
@@ -65,4 +93,7 @@ import { RegisterComponent } from './common/register/register.component';
   ],
   bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+
+}
+

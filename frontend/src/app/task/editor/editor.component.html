@@ -1,28 +1,29 @@
 <!--страница detail, обновление задачи-->
 
 <div *ngIf="task">
-  <h2>{{task.taskName | uppercase}} Details</h2>
-  <div><span>id: </span>{{task.id}}</div>
+  <h3>{{task.taskName | uppercase}} {{ 'HOME.details' | translate }}</h3>
+  <hr>
+  <h5><span>id: </span>{{task.id}}</h5>
   <div>
-    <label for="task-name">Task name: </label>
-    <input id="task-name" [(ngModel)]="task.taskName" placeholder="Task name"/>
+    <label for="task-name">{{ 'HOME.taskName' | translate }}: </label>
+    <input id="task-name" [(ngModel)]="task.taskName" placeholder="Task name"/><br>
 
-    <label for="task-condition">Task condition: </label>
-    <input id="task-condition" [(ngModel)]="task.taskCondition" placeholder="Task condition"/>
+    <label for="task-condition">{{ 'HOME.taskCondition' | translate }}: </label>
+    <input id="task-condition" [(ngModel)]="task.taskCondition" placeholder="Task condition"/><br>
 
-    <label for="task-topic">Task topic: </label>
-    <input id="task-topic" [(ngModel)]="task.taskTopic" placeholder="Task topic"/>
+    <label for="task-topic">{{ 'HOME.taskTopic' | translate }}: </label>
+    <input id="task-topic" [(ngModel)]="task.taskTopic" placeholder="Task topic"/><br>
 
-    <label for="tags">Tags: </label>
-    <input id="tags" [(ngModel)]="task.tags" placeholder="tags"/>
+    <label for="tags">{{ 'HOME.tags' | translate }}: </label>
+    <input id="tags" [(ngModel)]="task.tags" placeholder="tags"/><br>
 
-    <label for="answerOptions">Answer options: </label>
-    <input id="answerOptions" [(ngModel)]="task.answerOptions" placeholder="answerOptions"/>
+    <label for="answerOptions">{{ 'HOME.answer' | translate }}: </label>
+    <input id="answerOptions" [(ngModel)]="task.answerOptions" placeholder="answerOptions"/><br>
 
-    <label for="rightSolution">Right solution: </label>
-    <input id="rightSolution" [(ngModel)]="task.rightSolution" placeholder="rightSolution"/>
+    <label for="rightSolution">{{ 'HOME.right' | translate }}: </label>
+    <input id="rightSolution" [(ngModel)]="task.rightSolution" placeholder="rightSolution"/><br>
 
   </div>
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
+  <button (click)="goBack()">{{ 'HOME.back' | translate }}</button>
+  <button (click)="save()">{{ 'HOME.save' | translate }}</button>
 </div>

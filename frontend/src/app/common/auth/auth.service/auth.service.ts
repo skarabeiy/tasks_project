@@ -57,8 +57,6 @@ export class AuthService {
   setToken(token: string ): void {
     localStorage.setItem(TOKEN_NAME, token);
     localStorage.setItem(ROLE_NAME,this.getDecodedAccessToken(token).roles[0]);
-    //localStorage.setItem(ROLE_NAME, jwt_decode(token).roles[0]);
-
   }
 
   getRole(): string {

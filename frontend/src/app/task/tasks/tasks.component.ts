@@ -7,6 +7,8 @@ import jwt_decode from "jwt-decode";
 import {AuthService} from "../../common/auth/auth.service/auth.service";
 import {Achievements} from "../../common/model/achievements/achievements";
 import {AchievementsService} from "../../common/model/achievements/service/achievements.service";
+import {TranslateService} from "@ngx-translate/core";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-tasks',
@@ -16,10 +18,16 @@ import {AchievementsService} from "../../common/model/achievements/service/achie
 export class TasksComponent implements OnInit {
   tasks: Task[] = [];
   achievements: Achievements;
+
   constructor(private taskService: TaskService,
               private authService: AuthService,
+              private route: ActivatedRoute,
+              private router: Router,
               private achievementsService: AchievementsService
-  ) { }
+  ) {
+
+  }
+
 
   ngOnInit() {
     let id = this.getDecodedAccessToken(this.authService.getToken()).user;
@@ -27,10 +35,7 @@ export class TasksComponent implements OnInit {
     this.getAchievements(id);
   }
 
-  // getTasks(): void {
-  //   this.taskService.getTasks()
-  //     .subscribe(tasks => this.tasks = tasks);
-  // }
+
 
   getDecodedAccessToken(token: string): any {
     try{

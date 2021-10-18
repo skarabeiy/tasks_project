@@ -1,0 +1,150 @@
+/* TasksComponent's private CSS styles */
+.tasks {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: .5rem;
+  margin: 1rem 0;
+  box-sizing: border-box;
+}
+
+.tasks li {
+  position: relative;
+  cursor: pointer;
+}
+
+.tasks li:hover {
+  left: .1em;
+}
+
+.tasks a {
+  color: #333;
+  text-decoration: none;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  /*height: 2em;*/
+  border-radius: 4px;
+  display: block;
+  width: 85%;
+}
+
+.tasks a:hover {
+  color: #2c3a41;
+  background-color: #e6e6e6;
+}
+
+.tasks a:active {
+  background-color: #525252;
+  color: #fafafa;
+}
+
+.tasks .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.3em 0.7em 0 0.7em;
+  background-color:#405061;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -6px;
+  height: 2.4em;
+  min-width: 16px;
+  text-align: right;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+.add-button {
+  padding: .5rem 1.5rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.add-button:hover {
+  color: white;
+  background-color: #42545C;
+}
+button.view{
+  position: absolute;
+  right: 50px;
+  top: -2px;
+  /*background-color: white;*/
+  color:  #525252;
+  font-size: 1.1rem;
+  padding: 0px 10px 10px 0px;
+  width: 70px;
+  height: 50px;
+
+}
+button.delete {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-color: white;
+  color:  #525252;
+  font-size: 1.1rem;
+  padding: 1px 10px 3px 10px;
+}
+form {
+  color: #007bff;
+  cursor: pointer;
+}
+button.delete:hover {
+  background-color: #525252;
+  color: white;
+}
+/* AppComponent's private CSS styles */
+h1 {
+  margin-bottom: 0;
+}
+nav a {
+  padding: 1rem;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-right: 20px;
+  display: inline-block;
+  background-color: #e8e8e8;
+  color: #3d3d3d;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  color: white;
+  background-color: #42545C;
+}
+nav a.active {
+  background-color: black;
+}
+.navbar {
+  margin-bottom: 0px !important;
+  border-radius: 0px !important;
+}
+.newInvoices {
+  color: red !important;
+}
+.header {
+  background-color: #4b535d;
+  color: white;
+}
+
+h2{
+  color: #003991;
+}
+h4{
+  color: #91721c;
+}
+button {
+  background-color: #eee;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin: 10px;
+}
+

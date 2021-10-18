@@ -1,8 +1,7 @@
 package itransition.project.task.service;
 
 import itransition.project.task.dto.TaskDto;
-import itransition.project.task.model.Task;
-import itransition.project.user.dto.UserDto;
+
 
 
 import java.util.List;

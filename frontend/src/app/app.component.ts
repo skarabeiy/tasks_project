@@ -2,6 +2,8 @@ import {Component, NgZone} from '@angular/core';
 import {AuthService} from "./common/auth/auth.service/auth.service";
 import {Router} from "@angular/router";
 
+import {TranslateService} from "@ngx-translate/core";
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,27 +12,32 @@ import {Router} from "@angular/router";
 export class AppComponent {
   title = 'Tasks';
 
-
   someInterval;
   check: boolean = true;
+
+  nameComponent = 'Max';
+  hello = '';
   constructor(public authService: AuthService,
               private router: Router,
-              private zone: NgZone
+              private zone: NgZone,
+              public translate: TranslateService
               ) {
+    this.translate.stream('HOME.TITLE').subscribe(val => {
+    this.hello = val;
+  });
+
     this.zone.runOutsideAngular(() => {
       this.someInterval = setInterval(() => {
-        // if (this.getRole()=='MANAGER') {
-        //   this.getInvoices();
-        // }
-        // if (this.getRole()=='DRIVER') {
-        //   this.getWaybills();
-        // }
+
         }, 1000000) })}
 
   getRole(): string{
     return this.authService.getRole();
   }
 
+  onChangeName(name: string) {
+    this.nameComponent = name;
+  }
 
   logout(): void {
     localStorage.clear();
@@ -41,11 +48,6 @@ export class AppComponent {
     if (this.authService.isTokenExpired()) {
       localStorage.clear()
     }
-    // if (this.getRole()=='MANAGER') {
-    //   this.getInvoices();
-    // }
-    // if (this.getRole()=='DRIVER') {
-    //   this.getWaybills();
-    // }
+
   }
 }

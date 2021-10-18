@@ -1,46 +1,74 @@
 <!--страница tasks, главная страница задач-->
-<h2>Personal Page</h2>
+
+
+
+
+<h2>{{ 'HOME.TITLE' | translate }}</h2>
+<hr>
+
 <nav>
-  <a routerLink="/personalPage">Personal page</a>
-  <a routerLink="/mainPage">Main page</a>
+  <a routerLink="/personalPage">{{ 'HOME.buttonPersonalPage' | translate }}</a>
+  <a routerLink="/mainPage">{{ 'HOME.buttonMainPage' | translate }}</a>
 </nav>
+<hr>
 <app-task-search></app-task-search>
+<br>
 <hr>
 <div>
   <!-- (click) passes input value to add() and then clears the input -->
   <button class="add-button" >
     <a routerLink="add">
-      Add task
+      {{ 'HOME.addTask' | translate }}
     </a>
   </button>
 
 </div>
 
 
-<ul class="tasks">
-  <li *ngFor="let task of tasks">
+<table class="table table-striped">
+
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col" >#</th>
+    <th scope="col" >{{ 'HOME.taskName' | translate }}</th>
+    <th scope="col" >{{ 'HOME.taskTopic' | translate }}</th>
+    <th scope="col"  >{{ 'HOME.tags' | translate }}</th>
+    <th scope="col" >{{ 'HOME.rating' | translate }}</th>
+    <th scope="col" ></th>
+    <th scope="col" ></th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let task of tasks">
+  <tr>
     <a routerLink="/detail/{{task.id}}">
-      <span class="badge">{{task.id}}</span>{{task.user.name}} {{task.taskName}} {{task.taskCondition}} {{task.taskTopic}} {{task.tags}} {{task.answerOptions}} {{task.rating}}
-
+    <th scope="row">{{task.id}} {{ 'HOME.update' | translate }}</th>
     </a>
-    <button class="view" title="view">
-    <a routerLink="/view/{{task.id}}">
-      View
-    </a>
-    </button>
+    <td>{{task.taskName}}</td>
+    <td>{{task.taskTopic}}</td>
+    <td>{{task.tags}}</td>
+    <td>{{task.rating}} <img src="assets/img/star.png"></td>
+    <td><a routerLink="/view/{{task.id}}">{{ 'HOME.view' | translate }}</a></td>
+    <td><form name="delete" (click)="delete(task)" >{{ 'HOME.delete' | translate }}</form></td>
+  </tr>
 
-    <button class="delete" title="delete task"
-            (click)="delete(task)">x</button>
-  </li>
 
-</ul>
+
+  </tbody>
+</table>
+<br><br><br>
 
 <div *ngIf="achievements">
-  <h4>Achievements</h4>
+  <h4>{{ 'HOME.achievements' | translate }} <img src="assets/img/achievements.jpg"></h4>
+
   <hr>
-  <p>The number of tasks you created: {{achievements.numberCreatedTasks}}</p>
-  <p>The number of tasks you solved: {{achievements.numberSolvedTasks}}</p>
+  <p>{{ 'HOME.created' | translate }}: {{achievements.numberCreatedTasks}}</p>
+  <p>{{ 'HOME.solved' | translate }}: {{achievements.numberSolvedTasks}}</p>
 </div>
+
+
+
+
+
 
 
 

@@ -12,7 +12,6 @@ import { Location} from "@angular/common";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  // : Task[] = [];
 public hasError: boolean = false;
   constructor(private authService: AuthService,
               private router: Router,

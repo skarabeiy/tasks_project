@@ -27,7 +27,7 @@ public class RatingServiceImpl implements RatingService {
     public RatingServiceImpl(ModelMapper modelMapper, RatingRepository ratingRepository) {
         this.modelMapper = modelMapper;
         this.ratingRepository = ratingRepository;
-        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);  //??
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
     }
 
     @Override

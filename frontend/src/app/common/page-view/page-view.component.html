@@ -1,0 +1,17 @@
+<!--страница view, просмотр задачи-->
+<div *ngIf="task">
+  <h3>{{task.taskName | uppercase}} {{ 'HOME.viewing' | translate }}</h3>
+  <hr>
+  <div>
+    <p>{{ 'HOME.taskName' | translate }}: {{task.taskName}}</p>
+    <p>{{ 'HOME.taskCondition' | translate }}: {{task.taskCondition}}</p>
+    <p>{{ 'HOME.taskTopic' | translate }}: {{task.taskTopic}}</p>
+    <p>{{ 'HOME.tags' | translate }}: {{task.tags}}</p>
+    <p>{{ 'HOME.answer' | translate }}: {{task.answerOptions}}</p>
+    <p>{{ 'HOME.overallRating' | translate }}: {{task.rating}} <img src="assets/img/star.jpg"></p>
+
+  </div>
+
+  <button (click)="goBack()">{{ 'HOME.back' | translate }}</button>
+
+</div>

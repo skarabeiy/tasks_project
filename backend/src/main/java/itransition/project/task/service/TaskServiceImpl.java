@@ -96,12 +96,6 @@ public class TaskServiceImpl implements TaskService {
     public List<TaskDto> findBestRatingTasks() {
         log.info("In TaskServiceImpl findBestRatingTasks");
         List<TaskWithBestRating> taskWithBestRatings = ratingRepository.bestRating();
-//        List<TaskDto> taskDtos= new ArrayList<>();
-//        for (TaskWithBestRating taskWithBestRating : taskWithBestRatings) {
-//            TaskDto taskDto = modelMapper.map(taskWithBestRating.getTask(),TaskDto.class);
-//            taskDto.setRating(taskWithBestRating.getRating());
-//            taskDtos.add(taskDto);
-//        }
 
 
         List<TaskDto> taskDtos = taskWithBestRatings.stream().map(task ->{

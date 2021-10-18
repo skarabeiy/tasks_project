@@ -26,3 +26,9 @@ nav a.active {
 .newInvoices {
   color: red !important;
 }
+
+button{
+  margin: 10px;
+}
+
+

@@ -3,18 +3,19 @@
     <div class="col-md-3">
     </div>
     <div class="col-md-6 login-form-1">
-      <h3>Login</h3>
+      <h3>{{ 'HOME.login' | translate }}</h3>
       <form >
         <div class="form-group" [class.has-error]="hasError">
-          <input type="text" #name class="form-control" placeholder="Your Name *" value="" />
+          <input type="text" #name class="form-control" placeholder="{{ 'HOME.name' | translate }} *" value="" />
         </div>
         <div class="form-group" [class.has-error]="hasError">
-          <input type="password" #password class="form-control" placeholder="Your Password *" value="" />
+          <input type="password" #password class="form-control" placeholder="{{ 'HOME.password' | translate }} *" value="" />
         </div>
         <div class="form-group">
-          <input type="submit" (click)="login(name.value, password.value); name.value=''; password.value=''; hasError = true;" class="btnSubmit" value="Login" />
+          <input type="submit" (click)="login(name.value, password.value); name.value=''; password.value=''; hasError = true;" class="btnSubmit" value="{{ 'HOME.login' | translate }}" />
           <nav>
-            <a routerLink="/register">Registration</a>
+            <a routerLink="/register">{{ 'HOME.registration' | translate }}</a>
+            <a routerLink="/login/admin">{{ 'HOME.loginAdmin' | translate }}</a>
           </nav>
         </div>
       </form>
