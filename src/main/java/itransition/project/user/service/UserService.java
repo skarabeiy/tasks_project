@@ -1,5 +1,6 @@
 package itransition.project.user.service;
 
+import itransition.project.user.dto.UserDto;
 import itransition.project.user.dto.UserDtoWithPassword;
 import itransition.project.user.model.User;
 
@@ -9,7 +10,7 @@ public interface UserService {
 
     UserDtoWithPassword register(UserDtoWithPassword userDtoWithPassword);
 
-//    List<User> getAll();
+    List<UserDto> findAll();
 
     UserDtoWithPassword findByName(String name);
 
